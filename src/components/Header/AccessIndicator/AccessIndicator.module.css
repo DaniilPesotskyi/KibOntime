@@ -1,0 +1,30 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    width: fit-content;
+    margin: 0 auto 5px auto;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background-color: #007B17;
+}
+
+.indicator.disabled {
+    background-color: #C50000;
+}
+
+.label {
+    font-size: 13px;
+    color: #007B17;
+}
+
+.label.disabled {
+    color: #C50000;
+}

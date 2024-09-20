@@ -1,0 +1,33 @@
+.header {
+    margin: 30px auto 70px auto;
+}
+
+.logo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: fit-content;
+}
+
+.logoLabel {
+    position: absolute;
+    top: 70%;
+    right: -15px;
+
+    font-family: "Rouge Script", cursive;
+    font-size: 25px;
+    color: #007B17;
+}
+
+.icon {
+    width: 27px;
+    height: auto;
+}
+
+.title {
+    font-size: 28px;
+    color: #121212;
+}

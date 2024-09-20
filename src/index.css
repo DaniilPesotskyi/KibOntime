@@ -1,0 +1,63 @@
+:root {
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    font-style: normal;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+
+body {
+    width: 100%;
+
+    padding: 0 10px;
+    margin: 0;
+
+    font-family: "Roboto", sans-serif;
+}
+
+body > #root {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    height: 100vh;
+}
+
+.no-scroll {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}

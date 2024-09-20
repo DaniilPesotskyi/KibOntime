@@ -1,0 +1,22 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: fit-content;
+    margin: 0 auto 20px auto;
+}
+
+.label {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.image {
+    width: 40px;
+    height: 40px;
+
+    background-color: #989898;
+    border-radius: 5000px;
+    overflow: hidden;
+}
