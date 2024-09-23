@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 import {IUser} from "./types/userTypes.ts";
 import {IButtonStatus} from "./types/statusType.ts";
@@ -16,6 +16,8 @@ function App() {
     const [isAccessed, setIsAccessed] = useState(false);
     const [user, setUser] = useState<IUser | null>(null);
     const [status, setStatus] = useState<IButtonStatus>('load')
+
+    const isAccessedRef = useRef(isAccessed);
 
     const isAuthenticated = user !== null
 
@@ -42,13 +44,16 @@ function App() {
         getAndSetStatus()
     }, [])
 
+    useEffect(() => {
+        isAccessedRef.current = isAccessed;
+    }, [isAccessed]);
+
     const onLogin = (user: IUser) => {
         setUser(user)
 
-        console.log('User logged in:', user);
         console.log('isAccessed:', isAccessed);
 
-        if (!isAccessed) {
+        if (!isAccessedRef.current) {
             setStatus("unavailable")
             return
         }
