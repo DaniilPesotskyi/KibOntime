@@ -40,7 +40,7 @@ function App() {
             }
         }
         getAndSetStatus()
-    }, [])
+    }, [user])
 
     const onLogin = (user: IUser) => {
         setUser(user)
