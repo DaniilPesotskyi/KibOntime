@@ -40,10 +40,13 @@ function App() {
             }
         }
         getAndSetStatus()
-    }, [user])
+    }, [])
 
     const onLogin = (user: IUser) => {
         setUser(user)
+
+        console.log('User logged in:', user);
+        console.log('isAccessed:', isAccessed);
 
         if (!isAccessed) {
             setStatus("unavailable")
