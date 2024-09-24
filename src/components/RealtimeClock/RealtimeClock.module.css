@@ -1,0 +1,27 @@
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px 15px;
+    margin: 0 auto 10px auto;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+
+    font-size: 26px;
+    color: #000000;
+}
+
+.late {
+    border: 1px solid #ffb0b0;
+    background-color: #ffcaca;
+    color: #b20000;
+}
+
+.onTime {
+    border: 1px solid #b3ffb0;
+    background-color: #d7ffca;
+    color: #12b200;
+}
