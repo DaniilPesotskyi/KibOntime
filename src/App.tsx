@@ -29,7 +29,7 @@ function App() {
     }
 
     useEffect(() => {
-        const getAndSetStatus = async () => {
+        const getAndSetAccess = async () => {
             try {
                 const ip = await getIPFromAmazon();
                 if (ip.includes('178.151.158.226')) {
@@ -42,7 +42,7 @@ function App() {
                 setIsAccessed(false);
             }
         }
-        getAndSetStatus()
+        getAndSetAccess()
     }, [])
 
     useEffect(() => {
@@ -70,7 +70,7 @@ function App() {
                     setStatus('noCheckedIn')
                 }
             } catch {
-                console.log('Ошибка получения информации с таблицы')
+                toast.error('Помилка перевірки. Спробуйте ще раз')
                 setStatus("unavailable")
             }
         }

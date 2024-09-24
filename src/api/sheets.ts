@@ -2,21 +2,34 @@ import {IUser} from "../types/userTypes.ts";
 
 export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
     try {
-        console.log('idUser: ', employeeId)
+        console.log('idUser: ', employeeId);
 
         const response = await fetch(`${import.meta.env.VITE_GOOGLESHEETS_URL}?employeeId=${employeeId}`, {
             method: 'GET',
         });
 
-        console.log('response: ', response);
+        // Проверка, что ответ успешен
+        if (!response.ok) {
+            console.log(`Error: Server returned status ${response.status}`);
+            return false;
+        }
 
-        const responseJson = await response.json();
-        console.log('responseJson: ', responseJson);
+        // Захватим текст ответа для анализа
+        const responseText = await response.text();
+        console.log('Response Text:', responseText);
 
-        return responseJson;
+        // Попробуем распарсить как JSON
+        try {
+            const responseJson = JSON.parse(responseText);
+            console.log('Parsed JSON:', responseJson);
+            return responseJson;
+        } catch (jsonError) {
+            console.log('Error parsing JSON: ', jsonError);
+            return false;
+        }
 
     } catch (error) {
-        console.log('error: ', error);
+        console.log('Error: ', error);
         return false;
     }
 };
