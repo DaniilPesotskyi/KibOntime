@@ -7,24 +7,21 @@ export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
         const response = await fetch(`${import.meta.env.VITE_GOOGLESHEETS_URL}?employeeId=${employeeId}`, {
             method: 'GET',
         });
-
-        // Проверка, что ответ успешен
+        
         if (!response.ok) {
             console.log(`Error: Server returned status ${response.status}`);
             return false;
         }
 
-        // Захватим текст ответа для анализа
         const responseText = await response.text();
         console.log('Response Text:', responseText);
 
-        // Попробуем распарсить как JSON
-        try {
-            const responseJson = JSON.parse(responseText);
-            console.log('Parsed JSON:', responseJson);
-            return responseJson;
-        } catch (jsonError) {
-            console.log('Error parsing JSON: ', jsonError);
+        if (responseText === "true") {
+            return true;
+        } else if (responseText === "false") {
+            return false;
+        } else {
+            console.log('Unexpected response:', responseText);
             return false;
         }
 
