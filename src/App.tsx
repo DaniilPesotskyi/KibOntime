@@ -11,6 +11,7 @@ import CheckButton from "./components/CheckinButton/CheckButton.tsx";
 
 import {checkIfAlreadyCheckedIn, recordAttendance} from "./api/sheets.ts";
 import {toast, Toaster} from "react-hot-toast";
+import RealtimeClock from "./components/RealtimeClock/RealtimeClock.tsx";
 
 function App() {
     const [isAccessed, setIsAccessed] = useState(false);
@@ -99,6 +100,7 @@ function App() {
     return (
         <>
             <Header isAccessed={isAccessed}/>
+            <RealtimeClock isAccessed={isAccessed} user={user} status={status}/>
             <main>
                 {isAuthenticated ? (
                     <div>
