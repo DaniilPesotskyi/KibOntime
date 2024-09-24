@@ -2,31 +2,23 @@ import {IUser} from "../types/userTypes.ts";
 
 export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
     try {
-        console.log('idUser: ', employeeId);
+        console.log('idUser: ', employeeId)
 
         const response = await fetch(`${import.meta.env.VITE_GOOGLESHEETS_URL}?employeeId=${employeeId}`, {
             method: 'GET',
+            headers: {
+                'Cache-Control': 'no-cache'
+            },
+            redirect: 'follow',
         });
-        
-        if (!response.ok) {
-            console.log(`Error: Server returned status ${response.status}`);
-            return false;
-        }
 
-        const responseText = await response.text();
-        console.log('Response Text:', responseText);
+        const responseJson = await response.json();
+        console.log('responseJson: ', responseJson);
 
-        if (responseText === "true") {
-            return true;
-        } else if (responseText === "false") {
-            return false;
-        } else {
-            console.log('Unexpected response:', responseText);
-            return false;
-        }
+        return responseJson;
 
     } catch (error) {
-        console.log('Error: ', error);
+        console.log('error: ', error);
         return false;
     }
 };
