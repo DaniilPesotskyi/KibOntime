@@ -8,8 +8,12 @@ export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
             method: 'GET',
         });
 
+        console.log('response: ', response);
+        console.log('responseJson: ', response.json());
+
         return await response.json();
-    } catch {
+    } catch (error) {
+        console.log('error: ', error);
         return false;
     }
 };
