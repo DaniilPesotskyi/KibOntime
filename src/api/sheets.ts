@@ -9,9 +9,12 @@ export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
         });
 
         console.log('response: ', response);
-        console.log('responseJson: ', response.json());
 
-        return await response.json();
+        const responseJson = await response.json();
+        console.log('responseJson: ', responseJson);
+
+        return responseJson;
+
     } catch (error) {
         console.log('error: ', error);
         return false;
