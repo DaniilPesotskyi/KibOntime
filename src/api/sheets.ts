@@ -6,9 +6,6 @@ export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
 
         const response = await fetch(`${import.meta.env.VITE_GOOGLESHEETS_URL}?employeeId=${employeeId}`, {
             method: 'GET',
-            headers: {
-                'Cache-Control': 'no-cache'
-            },
             redirect: 'follow',
         });
 
