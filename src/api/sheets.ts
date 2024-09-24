@@ -2,6 +2,8 @@ import {IUser} from "../types/userTypes.ts";
 
 export const checkIfAlreadyCheckedIn = async (employeeId: IUser['id']) => {
     try {
+        console.log('idUser: ', employeeId)
+
         const response = await fetch(`${import.meta.env.VITE_GOOGLESHEETS_URL}?employeeId=${employeeId}`, {
             method: 'GET',
         });
