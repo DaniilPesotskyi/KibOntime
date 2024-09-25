@@ -16,7 +16,7 @@ const CheckButton: React.FC<IProps> = ({status, onClick}) => {
 
     const getLabel = () => {
         if (status === 'checkedIn') {
-            return 'Я на місці'
+            return 'Вже відмітились!'
         } else if (status === 'noCheckedIn') {
             return 'Відмітитись'
         } else if (status === 'unavailable') {
