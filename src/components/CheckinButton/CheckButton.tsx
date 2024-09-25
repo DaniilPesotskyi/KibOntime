@@ -33,7 +33,7 @@ const CheckButton: React.FC<IProps> = ({status, onClick}) => {
             status === 'noCheckedIn' && css.noCheckedIn,
             status === 'load' && css.load,
         )} type='button'>
-            {status !== 'unavailable' && status !== 'load' && <TimeIcon className={css.icon}/>}
+            {status === 'noCheckedIn' && <TimeIcon className={css.icon}/>}
             {status === 'load' && <LoadIcon className={css.loadIcon}/>}
             <span>{getLabel()}</span>
         </Button>
